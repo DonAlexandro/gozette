@@ -3,11 +3,12 @@
     "**/*",
     "**/.server/**/*",
     "**/.client/**/*",
-    ".react-router/types/**/*"
+    ".react-router/types/**/*",
+    ".storybook/storybook-vite.config.ts"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["node", "vite/client", "jest"],
+    "types": ["node", "vite/client", "vitest/globals"],
     "target": "ES2022",
     "module": "ES2022",
     "moduleResolution": "bundler",
