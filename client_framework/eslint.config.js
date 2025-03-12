@@ -20,6 +20,9 @@ export default [
       'no-console': 'error',
       'react/react-in-jsx-scope': 'off',
       'jsdoc/require-description': 'error',
+      'jsdoc/tag-lines': 'off',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
     settings: {
       react: {

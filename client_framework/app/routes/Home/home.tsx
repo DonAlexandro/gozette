@@ -1,5 +1,7 @@
-import type { Route } from '../+types/home';
 import React from 'react';
+import AbnormalUsageChart from './views/AbnormalUsageChart';
+import { Box, Card, CardContent, Grid2, Typography } from '@mui/material';
+import RiskScoreAgentStatus from './views/RiskScoreAgentStatus';
 
 export function meta() {
   return [
@@ -8,17 +10,33 @@ export function meta() {
   ];
 }
 
-export async function loader() {
-  const response = await fetch('http://127.0.0.1:8080/news');
-  const data = await response.json();
-
-  return data.result;
-}
-
-export default function Home({ loaderData }: Route.ComponentProps) {
+/**
+ * Home component that displays the top headlines.
+ *
+ * @returns The rendered component.
+ */
+export default function Home() {
   return (
-    <React.Fragment>
-      {loaderData.map((news: string) => `${news}\n`)}
-    </React.Fragment>
+    <Box sx={{ p: 2 }}>
+      <Grid2 container>
+        <Grid2 size={12}>
+          <Card variant="outlined">
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Abnormal resource usage
+              </Typography>
+              <AbnormalUsageChart />
+            </CardContent>
+          </Card>
+        </Grid2>
+        <Grid2 size={4} sx={{ mt: 2 }}>
+          <RiskScoreAgentStatus
+            status={'offline'}
+            offlineTime={120}
+            riskScore={33}
+          />
+        </Grid2>
+      </Grid2>
+    </Box>
   );
 }
